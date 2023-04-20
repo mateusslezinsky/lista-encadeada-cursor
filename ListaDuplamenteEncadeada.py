@@ -3,31 +3,36 @@ from Node import Node
 
 class ListaDuplamenteEncadeada:
     def __init__(self):
-        self.primeiro = None
-        self.ultimo = None
-        self.cursor = None
-        self.tamanho = 0
+        self.__primeiro = None
+        self.__ultimo = None
+        self.__cursor = None
+        self.__tamanho = 0
 
     def acessarAtual(self):
-        if self.cursor is not None:
-            return self.cursor.dados
+        if self.__cursor is not None:
+            return self.__cursor.dados
 
     def inserirComoPrimeiro(self, novo):
         node = Node(novo)
-        if self.primeiro is not None:
-            self.primeiro.anterior = node
-            node.proximo = self.primeiro
+        if self.__primeiro is not None:
+            self.__primeiro.anterior = node
+            node.proximo = self.__primeiro
         else:
-            self.ultimo = node
-        self.primeiro = node
-        self.tamanho += 1
+            self.__ultimo = node
+        self.__primeiro = node
+        self.__tamanho += 1
 
     def inserirComoUltimo(self, novo):
         node = Node(novo)
-        if self.ultimo is not None:
-            self.ultimo.proximo = node
-            node.anterior = self.ultimo
+        if self.__ultimo is not None:
+            self.__ultimo.proximo = node
+            node.anterior = self.__ultimo
         else:
-            self.primeiro = node
-        self.ultimo = node
-        self.tamanho += 1
+            self.__primeiro = node
+        self.__ultimo = node
+        self.__tamanho += 1
+
+    def avancarCursor(self, posicoes):
+        for i in range(posicoes):
+            self.__cursor = self.__cursor.proximo
+        return self.__cursor
