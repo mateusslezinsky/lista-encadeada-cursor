@@ -63,3 +63,37 @@ class ListaDuplamenteEncadeada:
 
     def irParaUltimo(self):
         self.__cursor = self.__ultimo
+
+    # MÉTODOS DE EXCLUSÃO
+
+    def excluirAtual(self):
+        if self.__tamanho == 0:
+            return
+
+        if self.__primeiro is self.__ultimo:
+            self.__primeiro = None
+            self.__ultimo = None
+            self.__cursor = None
+            self.__tamanho = 0
+            return
+
+        if self.__cursor == self.__ultimo:
+            self.__cursor = self.__cursor.anterior
+            self.__cursor.proximo = None
+            self.__ultimo = self.__cursor
+            self.__tamanho -= 1
+            return
+
+        if self.__cursor == self.__primeiro:
+            self.__cursor = self.__cursor.proximo
+            self.__cursor.anterior = None
+            self.__primeiro = self.__cursor
+            self.__tamanho -= 1
+            return
+
+        if (self.__cursor.proximo is not None) and (self.__cursor.anterior is not None):
+            proximo = self.__cursor.proximo
+            self.__cursor = self.__cursor.anterior
+            self.__cursor.proximo = proximo
+            self.__tamanho -= 1
+            return

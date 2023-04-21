@@ -11,7 +11,7 @@
 •inserirNaPosicao (k, novo) - Key
 
 **Augusto:**
-•ExcluirAtual () - Cursor
+•ExcluirAtual () - Cursor  ✅
 •ExcluirPrim ()
 •ExcluirUlt ()
 •ExcluirElem (chave) - Key
