@@ -8,6 +8,10 @@ class ListaDuplamenteEncadeada:
         self.__cursor = None
         self.__tamanho = 0
 
+    @property
+    def cursor(self):
+        return self.__cursor
+
     def acessarAtual(self):
         if self.__cursor is not None:
             return self.__cursor.dados
@@ -51,7 +55,7 @@ class ListaDuplamenteEncadeada:
             self.cursor = self.cursor.anterior
 
     def irParaPrimeiro(self):
-        self.cursor = self.__primeiro
+        self.__cursor = self.__primeiro
 
     def irParaUltimo(self):
-        self.cursor = self.__ultimo
+        self.__cursor = self.__ultimo
