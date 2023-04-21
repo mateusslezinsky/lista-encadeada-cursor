@@ -32,7 +32,26 @@ class ListaDuplamenteEncadeada:
         self.__ultimo = node
         self.__tamanho += 1
 
-    def avancarCursor(self, posicoes):
-        for i in range(posicoes):
-            self.__cursor = self.__cursor.proximo
-        return self.__cursor
+    def avancarKPosicoes(self, k):
+        if not self.cursor:
+            return
+
+        for i in range(k):
+            if not self.cursor.proximo:
+                break
+            self.cursor = self.cursor.proximo
+
+    def retrocederKPosicoes(self, k):
+        if not self.cursor:
+            return
+
+        for i in range(k):
+            if not self.cursor.anterior:
+                break
+            self.cursor = self.cursor.anterior
+
+    def irParaPrimeiro(self):
+        self.cursor = self.__primeiro
+
+    def irParaUltimo(self):
+        self.cursor = self.__ultimo
