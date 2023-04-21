@@ -12,6 +12,10 @@ class ListaDuplamenteEncadeada:
     def cursor(self):
         return self.__cursor
 
+    @property
+    def tamanho(self):
+        return self.__tamanho
+
     def acessarAtual(self):
         if self.__cursor is not None:
             return self.__cursor.dados
@@ -37,22 +41,22 @@ class ListaDuplamenteEncadeada:
         self.__tamanho += 1
 
     def avancarKPosicoes(self, k):
-        if not self.cursor:
+        if not self.__cursor:
             return
 
         for i in range(k):
-            if not self.cursor.proximo:
+            if not self.__cursor.proximo:
                 break
-            self.cursor = self.cursor.proximo
+            self.__cursor = self.__cursor.proximo
 
     def retrocederKPosicoes(self, k):
-        if not self.cursor:
+        if not self.__cursor:
             return
 
         for i in range(k):
-            if not self.cursor.anterior:
+            if not self.__cursor.anterior:
                 break
-            self.cursor = self.cursor.anterior
+            self.__cursor = self.__cursor.anterior
 
     def irParaPrimeiro(self):
         self.__cursor = self.__primeiro
