@@ -9,6 +9,10 @@ class ListaDuplamenteEncadeada:
         self.__tamanho = 0
 
     @property
+    def primeiro(self):
+        return self.__primeiro
+
+    @property
     def cursor(self):
         return self.__cursor
 
@@ -60,6 +64,22 @@ class ListaDuplamenteEncadeada:
             # O próximo do atual é o inserido
             self.__cursor.proximo = node
             # Aumenta o tamanho da lista
+            self.__tamanho += 1
+
+    def inserirNaPosicao(self, k, novo):
+        if k < 1 or k >= self.__tamanho - 1:
+            raise ValueError("Posição inválida")
+        elif k == 1:
+            self.inserirAposAtual(novo)
+        else:
+            node = Node(novo)
+            atual = self.__cursor
+            for i in range(1, k):
+                atual = atual.proximo
+            node.anterior = atual
+            node.proximo = atual.proximo
+            atual.proximo.anterior = node
+            atual.proximo = node
             self.__tamanho += 1
 
     def inserirComoPrimeiro(self, elemento):

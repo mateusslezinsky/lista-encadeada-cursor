@@ -9,7 +9,7 @@
     •inserirComoUltimo (novo) ✅
     •inserirAntesDoAtual (novo) - Cursor ✅
     •inserirApósAtual (novo) - Cursor ✅
-    •inserirNaPosicao (k, novo) - Key
+    •inserirNaPosicao (k, novo) - Key ✅
 
 **Augusto:**
 
