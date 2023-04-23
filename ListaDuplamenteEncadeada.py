@@ -13,6 +13,10 @@ class ListaDuplamenteEncadeada:
         return self.__cursor
 
     @property
+    def primeiro(self):
+        return self.__primeiro
+
+    @property
     def tamanho(self):
         return self.__tamanho
 
@@ -71,10 +75,7 @@ class ListaDuplamenteEncadeada:
             return
 
         if self.__primeiro is self.__ultimo:
-            self.__primeiro = None
-            self.__ultimo = None
-            self.__cursor = None
-            self.__tamanho = 0
+            self.reset()
             return
 
         if self.__cursor == self.__ultimo:
@@ -85,10 +86,7 @@ class ListaDuplamenteEncadeada:
             return
 
         if self.__cursor == self.__primeiro:
-            self.__cursor = self.__cursor.proximo
-            self.__cursor.anterior = None
-            self.__primeiro = self.__cursor
-            self.__tamanho -= 1
+            self.excluirPrimeiro()
             return
 
         if (self.__cursor.proximo is not None) and (self.__cursor.anterior is not None):
@@ -97,3 +95,42 @@ class ListaDuplamenteEncadeada:
             self.__cursor.proximo = proximo
             self.__tamanho -= 1
             return
+
+    def excluirPrimeiro(self):
+        if self.__tamanho == 0:
+            return
+
+        if self.__primeiro is self.__ultimo:
+            self.resetList()
+            return
+
+        else:
+            if self.__cursor == self.__primeiro:
+                self.avancarKPosicoes(1)
+            self.__primeiro = self.__primeiro.proximo
+            self.__primeiro.anterior = None
+            self.__tamanho -= 1
+            return
+
+    def excluirUltimo(self):
+        if self.__tamanho == 0:
+            return
+
+        if self.__ultimo is self.__primeiro:
+            self.resetList()
+            return
+
+        else:
+            if self.__cursor == self.__ultimo:
+                self.retrocederKPosicoes(1)
+            self.__ultimo = self.__ultimo.anterior
+            self.__primeiro.anterior = None
+            self.__tamanho -= 1
+            return
+
+    def resetList(self):
+        self.__primeiro = None
+        self.__ultimo = None
+        self.__cursor = None
+        self.__tamanho = 0
+        return
