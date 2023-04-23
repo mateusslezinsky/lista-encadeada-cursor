@@ -1,5 +1,5 @@
 # Mateus Slezinsky Pereira - 21200422
-# Augusto Teixeira da Silva
+# Augusto Teixeira da Silva - 22102556
 
 from Node import Node
 

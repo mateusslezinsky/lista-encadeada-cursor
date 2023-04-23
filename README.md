@@ -1,39 +1,43 @@
 # Trabalho sobre lista duplamente encadeada com cursor
 
-### Operações
+## Contribuintes:
 
-**Mateus:**
+    Mateus Slezinsky Pereira - 21200422
+    Augusto Teixeira da Silva - 22102556
 
-    •acessarAtual() - Cursor ✅
-    •inserirComoPrimeiro (novo) ✅
-    •inserirComoUltimo (novo) ✅
-    •inserirAntesDoAtual (novo) - Cursor ✅
-    •inserirApósAtual (novo) - Cursor ✅
-    •inserirNaPosicao (k, novo) - Key ✅
+### Classes:
 
-**Augusto:**
+    ListaDuplamenteEncadeada
+    Node
 
-    •ExcluirAtual () - Cursor  ✅
-    •ExcluirPrimeiro () ✅
-    •ExcluirUltimo () ✅
-    •ExcluirElemento (chave) - Key ✅
-    •ExcluirDaPosicao (posicao) - Key ✅
-    •Buscar (chave) - Key ✅
+### Funções de Teste:
 
-### Cursor
+    testes1 - main.py
+    testes2 - main.py
 
-    •avançarKPosições(K) ✅
-    •retrocederKPosições (K) ✅
-    •irParaPrimeiro() ✅
-    •irParaUltimo() ✅
+### Operações:
+
+    •acessarAtual() - Cursor
+    •inserirComoPrimeiro (novo)
+    •inserirComoUltimo (novo)
+    •inserirAntesDoAtual (novo) - Cursor
+    •inserirApósAtual (novo) - Cursor
+    •inserirNaPosicao (k, novo) - Key
+    •ExcluirAtual () - Cursor
+    •ExcluirPrimeiro ()
+    •ExcluirUltimo ()
+    •ExcluirElemento (chave) - Key
+    •ExcluirDaPosicao (posicao) - Key
+    •Buscar (chave) - Key
+
+### Operações do Cursor:
+
+    •avançarKPosições(K)
+    •retrocederKPosições (K)
+    •irParaPrimeiro()
+    •irParaUltimo()
 
 ### Outras (de apoio):
 
-    •Vazia() ✅
-    •Cheia() ✅
+    •Vazia()
     •posiçãoDe(chave)
-
-##### Relatório:
-
-    • Markdown
-    • Comentários dentro do próprio código
