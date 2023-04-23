@@ -21,10 +21,6 @@ class ListaDuplamenteEncadeada:
         return self.__cursor
 
     @property
-    def primeiro(self):
-        return self.__primeiro
-
-    @property
     def tamanho(self):
         return self.__tamanho
 

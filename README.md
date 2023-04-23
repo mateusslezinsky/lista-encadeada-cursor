@@ -14,8 +14,8 @@
 **Augusto:**
 
     •ExcluirAtual () - Cursor  ✅
-    •ExcluirPrim ()
-    •ExcluirUlt ()
+    •ExcluirPrim () ✅
+    •ExcluirUlt () ✅
     •ExcluirElem (chave) - Key
     •ExcluirDaPos (k) - Key
     •Buscar (chave) - Key
