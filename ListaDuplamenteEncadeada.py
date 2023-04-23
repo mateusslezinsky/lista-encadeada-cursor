@@ -159,7 +159,7 @@ class ListaDuplamenteEncadeada:
     # MÉTODOS DE EXCLUSÃO
 
     def excluirAtual(self):
-        if self.__tamanho == 0:
+        if self.vazia():
             return
 
         if self.__primeiro is self.__ultimo:
@@ -182,13 +182,12 @@ class ListaDuplamenteEncadeada:
             return
 
     def excluirPrimeiro(self):
-        if self.__tamanho == 0:
+        if self.vazia():
             return
 
         if self.__primeiro is self.__ultimo:
             self.resetList()
             return
-
         else:
             if self.__cursor == self.__primeiro:
                 self.avancarKPosicoes(1)
@@ -198,7 +197,7 @@ class ListaDuplamenteEncadeada:
             return
 
     def excluirUltimo(self):
-        if self.__tamanho == 0:
+        if self.vazia():
             return
 
         if self.__ultimo is self.__primeiro:
@@ -214,16 +213,76 @@ class ListaDuplamenteEncadeada:
             return
 
     def excluirElemento(self, chave):
-        tempCursor = self.__cursor
-        if self.__tamanho == 0:
+        if (chave is None) or (self.vazia()):
             return
 
+        tempCursor = self.__cursor
         self.irParaPrimeiro()
         for i in range(self.__tamanho):
             if str(chave) == str(self.__cursor.dados):
                 self.excluirAtual()
-                self.__cursor = tempCursor
                 break
+            self.avancarKPosicoes(1)
+
+        self.__cursor = tempCursor
+        return
+
+    def excluirDaPosicao(self, posicao):
+        if (0 > posicao) or (posicao is None) or self.vazia():
+            return
+
+        tempCursor = self.__cursor
+        self.irParaPrimeiro()
+        if posicao <= (self.__tamanho - 1):
+            self.avancarKPosicoes(posicao)
+            self.excluirAtual()
+
+        self.__cursor = tempCursor
+        return
+
+    def buscarBool(self, chave):
+        if (chave is None) or self.vazia():
+            return False
+
+        tempCursor = self.__cursor
+        self.irParaPrimeiro()
+        for i in range(self.__tamanho):
+            if str(chave) == str(self.__cursor.dados):
+                self.__cursor = tempCursor
+                return True
+            self.avancarKPosicoes(1)
+
+        self.__cursor = tempCursor
+        return False
+
+    def buscar(self, chave):
+        if (chave is None) or self.vazia():
+            return False
+
+        tempCursor = self.__cursor
+        self.irParaPrimeiro()
+        for i in range(self.__tamanho):
+            if str(chave) == str(self.__cursor.dados):
+                retorno = self.cursor.dados
+                self.__cursor = tempCursor
+                return retorno
+            self.avancarKPosicoes(1)
+        self.__cursor = tempCursor
+        return None
+
+    def buscarPosicao(self, chave):
+        if (chave is None) or (self.vazia()):
+            return
+
+        tempCursor = self.__cursor
+        self.irParaPrimeiro()
+        for i in range(self.__tamanho):
+            if str(chave) == str(self.__cursor.dados):
+                self.__cursor = tempCursor
+                return i
+            self.avancarKPosicoes(1)
+
+        self.__cursor = tempCursor
         return
 
     def resetList(self):

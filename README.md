@@ -14,11 +14,11 @@
 **Augusto:**
 
     •ExcluirAtual () - Cursor  ✅
-    •ExcluirPrim () ✅
-    •ExcluirUlt () ✅
-    •ExcluirElem (chave) - Key
-    •ExcluirDaPos (k) - Key
-    •Buscar (chave) - Key
+    •ExcluirPrimeiro () ✅
+    •ExcluirUltimo () ✅
+    •ExcluirElemento (chave) - Key ✅
+    •ExcluirDaPosicao (posicao) - Key ✅
+    •Buscar (chave) - Key ✅
 
 ### Cursor
 
