@@ -29,15 +29,9 @@
 
 ### Outras (de apoio):
 
-    •Vazia()
-    •Cheia()
+    •Vazia() ✅
+    •Cheia() ✅
     •posiçãoDe(chave)
-
-#### O que falta?
-
-    • Key para elemento (id)
-    • Key como id incrementado: [0,1,2,3,4]
-    • Nomes dos dois
 
 ##### Relatório:
 

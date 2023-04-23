@@ -1,3 +1,6 @@
+# Mateus Slezinsky Pereira - 21200422
+# Augusto Teixeira da Silva
+
 from ListaDuplamenteEncadeada import ListaDuplamenteEncadeada
 
 lista = ListaDuplamenteEncadeada()
