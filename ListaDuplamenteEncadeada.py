@@ -17,6 +17,10 @@ class ListaDuplamenteEncadeada:
         return self.__primeiro
 
     @property
+    def ultimo(self):
+        return self.__ultimo
+
+    @property
     def cursor(self):
         return self.__cursor
 
@@ -163,10 +167,7 @@ class ListaDuplamenteEncadeada:
             return
 
         if self.__cursor == self.__ultimo:
-            self.__cursor = self.__cursor.anterior
-            self.__cursor.proximo = None
-            self.__ultimo = self.__cursor
-            self.__tamanho -= 1
+            self.excluirUltimo()
             return
 
         if self.__cursor == self.__primeiro:
@@ -212,9 +213,23 @@ class ListaDuplamenteEncadeada:
             self.__tamanho -= 1
             return
 
+    def excluirElemento(self, chave):
+        tempCursor = self.__cursor
+        if self.__tamanho == 0:
+            return
+
+        self.irParaPrimeiro()
+        for i in range(self.__tamanho):
+            if str(chave) == str(self.__cursor.dados):
+                self.excluirAtual()
+                self.__cursor = tempCursor
+                break
+        return
+
     def resetList(self):
         self.__primeiro = None
         self.__ultimo = None
         self.__cursor = None
         self.__tamanho = 0
+        self.__tamanho_max = 0
         return
