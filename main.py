@@ -6,8 +6,10 @@ from ListaDuplamenteEncadeada import ListaDuplamenteEncadeada
 lista = ListaDuplamenteEncadeada()
 
 # Colocando primeiro e último elementos
-lista.inserirComoPrimeiro(1)
-lista.inserirComoUltimo(5)
+lista.inserirComoPrimeiro("Dummy")
+lista.inserirComoUltimo("Mateus")
+lista.inserirComoUltimo("Augusto")
+lista.inserirComoUltimo("DeLucca")
 lista.irParaPrimeiro()
 
 
@@ -18,7 +20,7 @@ def testes1():
     print(f"Imprimindo valor do cursor: {lista.cursor.dados}")
     print("------------------------")
 
-    print(f"Primeiro: {lista.primeiro.proximo.anterior.dados}")
+    print(f"Primeiro: {lista.primeiro.dados}")
     lista.excluirPrimeiro()
     print(f"Após exclusão: {lista.primeiro.anterior}")
 
@@ -28,21 +30,26 @@ def testes1():
 
 
 def testes2():
-    lista.inserirAposAtual(2)
+    lista.inserirAposAtual("Marcos")
     lista.avancarKPosicoes(1)
-    lista.inserirAposAtual(3)
+    lista.inserirAposAtual("Chico")
     lista.avancarKPosicoes(1)
     lista.retrocederKPosicoes(1)
-    lista.inserirNaPosicao(2, 4)
+    lista.inserirNaPosicao(2, "Guilherme")
+    lista.inserirNaPosicao(1, "Yasmim")
     lista.avancarKPosicoes(2)
     lista.irParaUltimo()
     lista.irParaPrimeiro()
 
-    for i in range(lista.tamanho):
-        print(f"Elemento {i+1}: {lista.acessarAtual()}, Anterior: {lista.cursor.anterior.dados if lista.cursor.anterior is not None else None}, Próximo: {lista.cursor.proximo.dados if lista.cursor.proximo is not None else None}")
-        lista.avancarKPosicoes(1)
+    lista.listarElementos()
 
-    print(f"\nQuantidade de elementos: {lista.tamanho}\n")
+    print("Excluindo elemento 'Guilherme'")
+    lista.excluirElemento("Guilherme")
+    print("Excluindo da posição 1")
+    lista.excluirDaPosicao(1)
+    lista.irParaPrimeiro()
+    lista.listarElementos()
 
 
+testes1()
 testes2()

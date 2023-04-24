@@ -18,26 +18,29 @@
 ### Operações:
 
     •acessarAtual() - Cursor
-    •inserirComoPrimeiro (novo)
-    •inserirComoUltimo (novo)
-    •inserirAntesDoAtual (novo) - Cursor
-    •inserirApósAtual (novo) - Cursor
-    •inserirNaPosicao (k, novo) - Key
-    •ExcluirAtual () - Cursor
-    •ExcluirPrimeiro ()
-    •ExcluirUltimo ()
-    •ExcluirElemento (chave) - Key
-    •ExcluirDaPosicao (posicao) - Key
-    •Buscar (chave) - Key
+    •inserirComoPrimeiro(novo)
+    •inserirComoUltimo(novo)
+    •inserirAntesDoAtual(novo) - Cursor
+    •inserirApósAtual(novo) - Cursor
+    •inserirNaPosicao(k, novo) - Key
+    •excluirAtual() - Cursor
+    •excluirPrimeiro()
+    •excluirUltimo()
+    •excluirElemento(chave) - Key
+    •excluirDaPosicao(posicao) - Key
+    •buscarPosicao(chave) - Key
+    •buscarBool(chave) - Key
+    •buscar(chave) - Key
+    •resetList()
 
 ### Operações do Cursor:
 
     •avançarKPosições(K)
-    •retrocederKPosições (K)
+    •retrocederKPosições(K)
     •irParaPrimeiro()
     •irParaUltimo()
 
 ### Outras (de apoio):
 
-    •Vazia()
+    •vazia()
     •posiçãoDe(chave)
