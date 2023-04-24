@@ -165,7 +165,7 @@ class ListaDuplamenteEncadeada:
             anterior = self.__cursor.anterior
             self.__cursor = self.__cursor.anterior
             self.__cursor.proximo = proximo
-            self.avancarKPosicoes(2)
+            self.avancarKPosicoes(1)
             self.__cursor.anterior = anterior
             self.__tamanho -= 1
             return
@@ -284,3 +284,11 @@ class ListaDuplamenteEncadeada:
         self.__cursor = None
         self.__tamanho = 0
         return
+
+    def listarElementos(self):
+        for i in range(self.tamanho):
+            print(
+                f"Elemento {i}: {self.acessarAtual()}, Anterior: {self.cursor.anterior.dados if self.cursor.anterior is not None else None}, Próximo: {self.cursor.proximo.dados if self.cursor.proximo is not None else None}")
+            self.avancarKPosicoes(1)
+        print(f"\nQuantidade de elementos: {self.tamanho}\n")
+

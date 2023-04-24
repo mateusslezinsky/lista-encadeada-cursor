@@ -13,14 +13,6 @@ lista.inserirComoUltimo("DeLucca")
 lista.irParaPrimeiro()
 
 
-def listarElementos():
-    for i in range(lista.tamanho):
-        print(
-            f"Elemento {i + 1}: {lista.acessarAtual()}, Anterior: {lista.cursor.anterior.dados if lista.cursor.anterior is not None else None}, Próximo: {lista.cursor.proximo.dados if lista.cursor.proximo is not None else None}")
-        lista.avancarKPosicoes(1)
-    print(f"\nQuantidade de elementos: {lista.tamanho}\n")
-
-
 def testes1():
     # Avançando cursor pra primeira posição
     lista.irParaPrimeiro()
@@ -49,12 +41,14 @@ def testes2():
     lista.irParaUltimo()
     lista.irParaPrimeiro()
 
-    listarElementos()
+    lista.listarElementos()
 
     print("Excluindo elemento 'Guilherme'")
     lista.excluirElemento("Guilherme")
+    print("Excluindo da posição 1")
+    lista.excluirDaPosicao(1)
     lista.irParaPrimeiro()
-    listarElementos()
+    lista.listarElementos()
 
 
 testes1()
