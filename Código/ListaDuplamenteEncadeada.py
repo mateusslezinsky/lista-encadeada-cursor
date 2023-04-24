@@ -27,7 +27,7 @@ class ListaDuplamenteEncadeada:
     def tamanho(self):
         return self.__tamanho
 
-    def acessarAtual(self):
+    def _acessarAtual(self):
         if self.__cursor is not None:
             return self.__cursor.dados
 
@@ -109,7 +109,7 @@ class ListaDuplamenteEncadeada:
         self.__ultimo = node
         self.__tamanho += 1
 
-    def avancarKPosicoes(self, k):
+    def _avancarKPosicoes(self, k):
         if not self.__cursor:
             return
 
@@ -118,7 +118,7 @@ class ListaDuplamenteEncadeada:
                 break
             self.__cursor = self.__cursor.proximo
 
-    def retrocederKPosicoes(self, k):
+    def _retrocederKPosicoes(self, k):
         if not self.__cursor:
             return
 
@@ -127,10 +127,10 @@ class ListaDuplamenteEncadeada:
                 break
             self.__cursor = self.__cursor.anterior
 
-    def irParaPrimeiro(self):
+    def _irParaPrimeiro(self):
         self.__cursor = self.__primeiro
 
-    def irParaUltimo(self):
+    def _irParaUltimo(self):
         self.__cursor = self.__ultimo
 
     def vazia(self):
@@ -165,7 +165,7 @@ class ListaDuplamenteEncadeada:
             anterior = self.__cursor.anterior
             self.__cursor = self.__cursor.anterior
             self.__cursor.proximo = proximo
-            self.avancarKPosicoes(1)
+            self._avancarKPosicoes(1)
             self.__cursor.anterior = anterior
             self.__tamanho -= 1
             return
@@ -179,7 +179,7 @@ class ListaDuplamenteEncadeada:
             return
         else:
             if self.__cursor == self.__primeiro:
-                self.avancarKPosicoes(1)
+                self._avancarKPosicoes(1)
             self.__primeiro = self.__primeiro.proximo
             self.__primeiro.anterior = None
             self.__tamanho -= 1
@@ -195,7 +195,7 @@ class ListaDuplamenteEncadeada:
 
         else:
             if self.__cursor == self.__ultimo:
-                self.retrocederKPosicoes(1)
+                self._retrocederKPosicoes(1)
             self.__ultimo = self.__ultimo.anterior
             self.__primeiro.anterior = None
             self.__tamanho -= 1
@@ -207,12 +207,12 @@ class ListaDuplamenteEncadeada:
             return
 
         tempCursor = self.__cursor
-        self.irParaPrimeiro()
+        self._irParaPrimeiro()
         for i in range(self.__tamanho):
             if str(chave) == str(self.__cursor.dados):
                 self.excluirAtual()
                 break
-            self.avancarKPosicoes(1)
+            self._avancarKPosicoes(1)
 
         self.__cursor = tempCursor
         return
@@ -223,9 +223,9 @@ class ListaDuplamenteEncadeada:
             return
 
         tempCursor = self.__cursor
-        self.irParaPrimeiro()
+        self._irParaPrimeiro()
         if posicao <= (self.__tamanho - 1):
-            self.avancarKPosicoes(posicao)
+            self._avancarKPosicoes(posicao)
             self.excluirAtual()
 
         self.__cursor = tempCursor
@@ -236,12 +236,12 @@ class ListaDuplamenteEncadeada:
             return False
 
         tempCursor = self.__cursor
-        self.irParaPrimeiro()
+        self._irParaPrimeiro()
         for i in range(self.__tamanho):
             if str(chave) == str(self.__cursor.dados):
                 self.__cursor = tempCursor
                 return True
-            self.avancarKPosicoes(1)
+            self._avancarKPosicoes(1)
 
         self.__cursor = tempCursor
         return False
@@ -252,13 +252,13 @@ class ListaDuplamenteEncadeada:
             return False
 
         tempCursor = self.__cursor
-        self.irParaPrimeiro()
+        self._irParaPrimeiro()
         for i in range(self.__tamanho):
             if str(chave) == str(self.__cursor.dados):
                 retorno = self.cursor.dados
                 self.__cursor = tempCursor
                 return retorno
-            self.avancarKPosicoes(1)
+            self._avancarKPosicoes(1)
         self.__cursor = tempCursor
         return None
 
@@ -268,12 +268,12 @@ class ListaDuplamenteEncadeada:
             return
 
         tempCursor = self.__cursor
-        self.irParaPrimeiro()
+        self._irParaPrimeiro()
         for i in range(self.__tamanho):
             if str(chave) == str(self.__cursor.dados):
                 self.__cursor = tempCursor
                 return i
-            self.avancarKPosicoes(1)
+            self._avancarKPosicoes(1)
 
         self.__cursor = tempCursor
         return
@@ -288,7 +288,7 @@ class ListaDuplamenteEncadeada:
     def listarElementos(self):
         for i in range(self.tamanho):
             print(
-                f"Elemento {i}: {self.acessarAtual()}, Anterior: {self.cursor.anterior.dados if self.cursor.anterior is not None else None}, Próximo: {self.cursor.proximo.dados if self.cursor.proximo is not None else None}")
-            self.avancarKPosicoes(1)
+                f"Elemento {i}: {self._acessarAtual()}, Anterior: {self.cursor.anterior.dados if self.cursor.anterior is not None else None}, Próximo: {self.cursor.proximo.dados if self.cursor.proximo is not None else None}")
+            self._avancarKPosicoes(1)
         print(f"\nQuantidade de elementos: {self.tamanho}\n")
 

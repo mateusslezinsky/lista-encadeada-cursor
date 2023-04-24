@@ -6,16 +6,15 @@ from ListaDuplamenteEncadeada import ListaDuplamenteEncadeada
 lista = ListaDuplamenteEncadeada()
 
 # Colocando primeiro e último elementos
-lista.inserirComoPrimeiro("Dummy")
+lista.inserirComoPrimeiro("Mario")
 lista.inserirComoUltimo("Mateus")
 lista.inserirComoUltimo("Augusto")
 lista.inserirComoUltimo("DeLucca")
-lista.irParaPrimeiro()
 
 
 def testes1():
     # Avançando cursor pra primeira posição
-    lista.irParaPrimeiro()
+    lista._irParaPrimeiro()
     print("------------------------")
     print(f"Imprimindo valor do cursor: {lista.cursor.dados}")
     print("------------------------")
@@ -31,15 +30,15 @@ def testes1():
 
 def testes2():
     lista.inserirAposAtual("Marcos")
-    lista.avancarKPosicoes(1)
+    lista._avancarKPosicoes(1)
     lista.inserirAposAtual("Chico")
-    lista.avancarKPosicoes(1)
-    lista.retrocederKPosicoes(1)
+    lista._avancarKPosicoes(1)
+    lista._retrocederKPosicoes(1)
     lista.inserirNaPosicao(2, "Guilherme")
     lista.inserirNaPosicao(1, "Yasmim")
-    lista.avancarKPosicoes(2)
-    lista.irParaUltimo()
-    lista.irParaPrimeiro()
+    lista._avancarKPosicoes(2)
+    lista._irParaUltimo()
+    lista._irParaPrimeiro()
 
     lista.listarElementos()
 
@@ -47,7 +46,7 @@ def testes2():
     lista.excluirElemento("Guilherme")
     print("Excluindo da posição 1")
     lista.excluirDaPosicao(1)
-    lista.irParaPrimeiro()
+    lista._irParaPrimeiro()
     lista.listarElementos()
 
 
