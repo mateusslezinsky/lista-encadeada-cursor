@@ -142,6 +142,8 @@ class ListaDuplamenteEncadeada:
 
     # MÉTODOS DE EXCLUSÃO
 
+    # Este método fará a avaliação da posição do elemento na lista, aplicando o tratamento necessário caso esteja nas
+    # extremidades ou no meio da lista. Ele utiliza outros métodos da classe para aumentar a reutilização de código
     def excluirAtual(self):
         if self.vazia():
             return
@@ -160,8 +162,11 @@ class ListaDuplamenteEncadeada:
 
         if (self.__cursor.proximo is not None) and (self.__cursor.anterior is not None):
             proximo = self.__cursor.proximo
+            anterior = self.__cursor.anterior
             self.__cursor = self.__cursor.anterior
             self.__cursor.proximo = proximo
+            self.avancarKPosicoes(2)
+            self.__cursor.anterior = anterior
             self.__tamanho -= 1
             return
 
@@ -196,6 +201,7 @@ class ListaDuplamenteEncadeada:
             self.__tamanho -= 1
             return
 
+    # Este método busca a chave nos dados do elemento a ser excluído, guardando a posição do cursor para ser restaurada
     def excluirElemento(self, chave):
         if (chave is None) or (self.vazia()):
             return
@@ -211,6 +217,7 @@ class ListaDuplamenteEncadeada:
         self.__cursor = tempCursor
         return
 
+    # Este método exclui o elemento da lista, também guardando a posição do cursor para ser restaurada
     def excluirDaPosicao(self, posicao):
         if (0 > posicao) or (posicao is None) or self.vazia():
             return
@@ -239,6 +246,7 @@ class ListaDuplamenteEncadeada:
         self.__cursor = tempCursor
         return False
 
+    # Busca o elemento a partir da chave, retornando o elemento e preservando a posição do cursor para ser restaurada
     def buscar(self, chave):
         if (chave is None) or self.vazia():
             return False
@@ -254,6 +262,7 @@ class ListaDuplamenteEncadeada:
         self.__cursor = tempCursor
         return None
 
+    # Este método busca a posicao do elemento a partir da chave, guardando a posição do cursor para ser restaurada
     def buscarPosicao(self, chave):
         if (chave is None) or (self.vazia()):
             return
