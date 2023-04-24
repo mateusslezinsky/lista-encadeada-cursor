@@ -6,7 +6,8 @@ from ListaDuplamenteEncadeada import ListaDuplamenteEncadeada
 lista = ListaDuplamenteEncadeada()
 
 # Colocando primeiro e último elementos
-lista.inserirComoPrimeiro(1)
+lista.inserirComoPrimeiro(0)
+lista.inserirComoUltimo(1)
 lista.inserirComoUltimo(5)
 lista.irParaPrimeiro()
 
@@ -45,4 +46,5 @@ def testes2():
     print(f"\nQuantidade de elementos: {lista.tamanho}\n")
 
 
+testes1()
 testes2()
