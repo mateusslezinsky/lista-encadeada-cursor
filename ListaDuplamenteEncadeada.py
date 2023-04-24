@@ -10,7 +10,6 @@ class ListaDuplamenteEncadeada:
         self.__ultimo = None
         self.__cursor = None
         self.__tamanho = 0
-        self.__tamanho_max = 0
 
     @property
     def primeiro(self):
@@ -27,14 +26,6 @@ class ListaDuplamenteEncadeada:
     @property
     def tamanho(self):
         return self.__tamanho
-
-    @property
-    def tamanho_max(self):
-        return self.__tamanho_max
-
-    @tamanho_max.setter
-    def tamanho_max(self, tamanho_max):
-        self.__tamanho_max = tamanho_max
 
     def acessarAtual(self):
         if self.__cursor is not None:
@@ -145,13 +136,6 @@ class ListaDuplamenteEncadeada:
     def vazia(self):
         # Se o tamanho for igual a 0, está vazia.
         if self.__tamanho == 0:
-            return True
-        else:
-            return False
-
-    def cheia(self):
-        # Se o tamanho for igual ao tamanho máximo, está cheia.
-        if self.__tamanho == self.__tamanho_max:
             return True
         else:
             return False
@@ -290,5 +274,4 @@ class ListaDuplamenteEncadeada:
         self.__ultimo = None
         self.__cursor = None
         self.__tamanho = 0
-        self.__tamanho_max = 0
         return
